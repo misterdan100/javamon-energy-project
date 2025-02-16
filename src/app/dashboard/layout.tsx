@@ -1,4 +1,3 @@
-import Navbar from "@/components/dashboard/Navbar";
 import { SideBar } from "@/components/dashboard/SideBar";
 import React from "react";
 
@@ -16,7 +15,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
 
           <div className="flex flex-col w-full overflow-y-scroll">
-            {/* Navbar */}
             
             
             {children}

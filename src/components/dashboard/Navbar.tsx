@@ -1,6 +1,5 @@
 "use client";
 
-import { projectInfo } from "@/config/projectInfo";
 import { useAsideStore } from "@/stores";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,22 +13,24 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
   const asideOpen = useAsideStore((state) => state.asideOpen);
   const showAside = useAsideStore((state) => state.showAside);
 
-  const checkSize = () => {
-    if (window.innerWidth < 1024 && asideOpen === true) {
-      showAside(false);
-    } else if (window.innerWidth >= 1024 && asideOpen === false) {
-      showAside(true);
-    }
-  };
-
-  window.addEventListener("resize", checkSize);
+  // track window size
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    checkSize()
-  }, [])
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
 
+    // Set initial state
+    handleResize();
 
+    window.addEventListener("resize", handleResize);
 
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="sticky top-0 z-10 flex-shrink-0 bg-white-50 dark:bg-darker w-full py-2 px-4 flex justify-between backdrop-blur-md shadow-sm">
@@ -40,8 +41,6 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
           onClick={() => showAside(!asideOpen)}
         />
 
-        {/* <h2 className="text-2xl font-bold text-gray-500"
-        >{projectInfo.nombre}</h2> */}
         <h2 className="text-2xl font-bold text-gray-500">{children}</h2>
       </div>
 
