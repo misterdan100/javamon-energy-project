@@ -14,10 +14,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <SideBar />
 
 
-          <div className="flex flex-col w-full overflow-y-scroll">
+          <div className="flex flex-col w-full overflow-y-scroll h-full justify-between">
             
             
             {children}
+            <div
+              className="flex justify-between items-center p-4 text-gray-500  w-full h-12 border-t-[1px] border-gray-300 bg-white"
+            >
+              <p
+                className="hover:text-lime-700"
+              >©2025 Green API</p>
+              <p
+                className="hover:text-lime-700"
+              >Desarrollado por Javamon</p>
+            </div>
           </div>
         </div>
       </>

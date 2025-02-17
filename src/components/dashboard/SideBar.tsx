@@ -42,14 +42,14 @@ export const SideBar = () => {
                 className="flex items-center gap-3 justify-center"
             >
               <Image
-                src="/img/logo_1.jpg"
-                width={100}
-                height={100}
-                className="w-20"
+                src="/img/logo_3.png"
+                width={300}
+                height={300}
+                className="w-36"
                 alt="tailus logo"
                 priority
               />
-              <p className="font-bold text-3xl text-gray-500">{projectInfo.nombre}</p>
+
             </Link>
           </div>
 

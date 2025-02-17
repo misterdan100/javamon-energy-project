@@ -1,5 +1,6 @@
 "use client";
 
+import { changeRol } from "@/actions/changeRol";
 import { useRolModalStore } from "@/stores";
 import {
   Button,
@@ -8,12 +9,21 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@headlessui/react";
+import { useRouter } from "next/navigation";
 
 export const RolModal = () => {
   const isModalOpen = useRolModalStore((state) => state.isModalOpen);
   const openCloseModal = useRolModalStore((state) => state.openCloseModal);
   const datosUsuario = useRolModalStore((state) => state.datosUsuario);
   const modifyUserData = useRolModalStore((state) => state.modifyUserData);
+
+  const router = useRouter()
+
+  const handleChange = async () => {
+    const changeRolFn: any = await changeRol(datosUsuario.id, datosUsuario.rolActual === 'admin' ? 'user' : 'admin')
+    router.refresh()
+    openCloseModal(false)
+  }
 
   return (
     <Dialog
@@ -41,7 +51,7 @@ export const RolModal = () => {
             <div className="mt-4 flex gap-2">
               <Button
                 className="inline-flex items-center gap-2 rounded-md bg-green-200 py-1.5 px-3 text-sm font-semibold text-green-700 shadow-inner shadow-green-300 focus:outline-none hover:bg-green-300 focus:ring-2 focus:ring-green-400"
-                onClick={() => openCloseModal(false)}
+                onClick={handleChange}
               >
                 Cambiar rol
               </Button>

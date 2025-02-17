@@ -4,6 +4,7 @@ import { projectInfo } from "@/config/projectInfo"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { ErrorMessage } from "../ErrorMessage"
+import Image from "next/image"
 
 export const LoginCard = () => {
 
@@ -23,12 +24,13 @@ export const LoginCard = () => {
     <div
         className="w-[448px] bg-white rounded-lg p-6 shadow-md flex flex-col gap-5 text-gray-600"
     >
-      <div
-        id="logo-login"
-        className="text-lg font-bold text-gray-600 text-center"
-      > 
-        Logo..
-      </div>
+      <Image 
+        src='/img/logo_3.png'
+        alt="logo"
+        width={400}
+        height={400}
+        className="h-24 object-contain"
+      />
 
       <div>
         <h4
@@ -73,7 +75,7 @@ export const LoginCard = () => {
 
         <button 
           type="submit"
-          className="font-bold text-white bg-green-700 rounded-md py-3 hover:bg-green-600"
+          className="font-bold text-white bg-lime-600 rounded-md py-3 hover:bg-lime-500"
         >
           Iniciar Sesion
         </button>
@@ -81,7 +83,7 @@ export const LoginCard = () => {
       </form>
 
       <Link href="/register"
-        className="text-center text-sm text-green-700 hover:text-green-500"
+        className="text-center text-sm text-lime-600 hover:text-lime-500"
       >
         Crear una cuenta.
       </Link>

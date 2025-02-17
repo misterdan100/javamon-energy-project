@@ -43,7 +43,7 @@ export default async function UsersPage() {
 
                         <tbody className="text-sm divide-y divide-gray-100">
 
-                          {users.map( user => (
+                          {users?.map( (user: any) => (
                             <UserItem 
                               key={user.id}
                               id={user.id}
