@@ -9,18 +9,19 @@ import { createUser } from "@/actions/createUser";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { UserFromAPI } from "@/interfaces/types";
+import { setCookie } from "nookies";
 
 interface FormData {
-  nombre: string,
-  email: string,
-  telefono: string,
-  password: string,
-  confirmPassword: string,
+  nombre: string;
+  email: string;
+  telefono: string;
+  password: string;
+  confirmPassword: string;
 }
 
 export const RegisterCard = () => {
-  const [createError, setCreateError] = useState('')
-  const router = useRouter()
+  const [createError, setCreateError] = useState("");
+  const router = useRouter();
   const initialValues = {
     email: "",
     nombre: "",
@@ -37,23 +38,29 @@ export const RegisterCard = () => {
   const password = watch("password");
 
   const handleRegister = async (data: FormData) => {
-    setCreateError('')
-    const { confirmPassword, ...rest } = data
-    const user: UserFromAPI | string | undefined  = await createUser(rest)
+    setCreateError("");
+    const { confirmPassword, ...rest } = data;
+    const user: UserFromAPI | string | undefined = await createUser(rest);
 
-    if (typeof user === 'string') {
+    if (typeof user === "string") {
       setCreateError(user);
-      return
+      return;
     }
 
-    if(user === undefined) {
-      setCreateError('Error creando usuario, intente nuevamente')
-      return
+    if (user === undefined) {
+      setCreateError("Error creando usuario, intente nuevamente");
+      return;
     }
 
-    localStorage.setItem('javamon-jwt', JSON.stringify(user.token))
+    // Guardar el token en las cookies
+    setCookie(null, "javamon-jwt", user.token as string, {
+      maxAge: 60 * 60, // 1 hora
+      path: "/",
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: false,
+    });
 
-    router.push('/dashboard')
+    router.push("/dashboard");
   };
 
   return (
@@ -101,10 +108,12 @@ export const RegisterCard = () => {
             className="bg-gray-100 w-full px-2 py-3 rounded-lg"
             {...register("nombre", {
               required: "Nombre es obligatorio",
-              minLength: { value: 3, message: "Minimo 6 caracteres"},
+              minLength: { value: 3, message: "Minimo 6 caracteres" },
             })}
           />
-          {errors.email && <ErrorMessage>{errors.nombre?.message}</ErrorMessage>}
+          {errors.email && (
+            <ErrorMessage>{errors.nombre?.message}</ErrorMessage>
+          )}
         </div>
 
         <div>
@@ -115,7 +124,6 @@ export const RegisterCard = () => {
             className="bg-gray-100 w-full px-2 py-3 rounded-lg"
             {...register("telefono")}
           />
-
         </div>
 
         <div>
@@ -151,7 +159,7 @@ export const RegisterCard = () => {
           )}
         </div>
 
-        { createError && <ErrorMessage> {createError}</ErrorMessage>}
+        {createError && <ErrorMessage> {createError}</ErrorMessage>}
 
         <button
           type="submit"
