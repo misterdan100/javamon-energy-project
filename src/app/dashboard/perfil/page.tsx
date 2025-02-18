@@ -14,7 +14,7 @@ export default async function ProfilePage() {
   const buttonClasses = "py-1.5 px-3 bg-gray-100 rounded-lg text-gray-500 hover:bg-gray-200 transition cursor-pointer border-[1px] border-gray-300"
 
 
-  const user = await getUserInfo("admin");
+  const user = await getUserInfo();
 
   if (!user) return notFound();
 

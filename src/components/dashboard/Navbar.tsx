@@ -1,5 +1,6 @@
 "use client";
 
+import { getUserInfo } from "@/actions/getUserInfo";
 import { useAsideStore } from "@/stores";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +11,8 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
   const buttonClasses =
     "p-1.5 bg-gray-100 rounded-lg text-gray-500 hover:bg-gray-200 transition cursor-pointer";
 
+    const [user, setUser] = useState({userName: '', userRol: ''})
+
   const asideOpen = useAsideStore((state) => state.asideOpen);
   const showAside = useAsideStore((state) => state.showAside);
 
@@ -17,6 +20,17 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+
+      const fetchUserInfo = async () => {
+        const user = await getUserInfo()
+        const nombre = user.nombre.split(' ')[0]
+        const userRol = user.rol
+        
+        setUser({userName: nombre, userRol: userRol})
+    }
+
+    fetchUserInfo()
+
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
     };
@@ -32,6 +46,7 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
     };
   }, []);
 
+
   return (
     <div className="sticky top-0 z-10 flex-shrink-0 bg-white-50 dark:bg-darker w-full py-2 px-4 flex justify-between backdrop-blur-md shadow-sm">
       <div className="flex items-center gap-4">
@@ -46,8 +61,8 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
 
       <Link href="/dashboard/perfil" className="flex items-center gap-4 pe-6">
         <p>
-          Daniel
-          <span className="text-red-700 font-semibold italic"> (admin)</span>
+          {user.userName}
+          <span className="text-red-700 text-sm italic"> ({user.userRol})</span>
         </p>
         <Image
           src="/img/default_avatar.png"
