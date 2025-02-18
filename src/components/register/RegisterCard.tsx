@@ -5,10 +5,26 @@ import { projectInfo } from "@/config/projectInfo";
 import Link from "next/link";
 import { ErrorMessage } from "../ErrorMessage";
 import Image from "next/image";
+import { createUser } from "@/actions/createUser";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { UserFromAPI } from "@/interfaces/types";
+
+interface FormData {
+  nombre: string,
+  email: string,
+  telefono: string,
+  password: string,
+  confirmPassword: string,
+}
 
 export const RegisterCard = () => {
+  const [createError, setCreateError] = useState('')
+  const router = useRouter()
   const initialValues = {
     email: "",
+    nombre: "",
+    telefono: "",
     password: "",
     confirmPassword: "",
   };
@@ -20,8 +36,24 @@ export const RegisterCard = () => {
   } = useForm({ defaultValues: initialValues });
   const password = watch("password");
 
-  const handleRegister = async (data: any) => {
-    console.log(data);
+  const handleRegister = async (data: FormData) => {
+    setCreateError('')
+    const { confirmPassword, ...rest } = data
+    const user: UserFromAPI | string | undefined  = await createUser(rest)
+
+    if (typeof user === 'string') {
+      setCreateError(user);
+      return
+    }
+
+    if(user === undefined) {
+      setCreateError('Error creando usuario, intente nuevamente')
+      return
+    }
+
+    localStorage.setItem('javamon-jwt', JSON.stringify(user.token))
+
+    router.push('/dashboard')
   };
 
   return (
@@ -36,6 +68,7 @@ export const RegisterCard = () => {
           width={400}
           height={400}
           className="h-24 object-contain"
+          priority
         />
 
         <div>
@@ -58,6 +91,31 @@ export const RegisterCard = () => {
             })}
           />
           {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+        </div>
+
+        <div>
+          <p>Nombre:</p>
+          <input
+            type="text"
+            placeholder="Nombre completo..."
+            className="bg-gray-100 w-full px-2 py-3 rounded-lg"
+            {...register("nombre", {
+              required: "Nombre es obligatorio",
+              minLength: { value: 3, message: "Minimo 6 caracteres"},
+            })}
+          />
+          {errors.email && <ErrorMessage>{errors.nombre?.message}</ErrorMessage>}
+        </div>
+
+        <div>
+          <p>Telefono</p>
+          <input
+            type="number"
+            placeholder="3001231234"
+            className="bg-gray-100 w-full px-2 py-3 rounded-lg"
+            {...register("telefono")}
+          />
+
         </div>
 
         <div>
@@ -92,6 +150,8 @@ export const RegisterCard = () => {
             <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>
           )}
         </div>
+
+        { createError && <ErrorMessage> {createError}</ErrorMessage>}
 
         <button
           type="submit"

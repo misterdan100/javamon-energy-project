@@ -5,19 +5,49 @@ import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { ErrorMessage } from "../ErrorMessage"
 import Image from "next/image"
+import { loginUser } from "@/actions/login"
+import { useState } from "react"
+import { useRouter } from "next/navigation"
+import { UserFromAPI } from "@/interfaces/types"
+
+interface FormData {
+  email: string,
+  password: string,
+}
 
 export const LoginCard = () => {
+  const [loginError, setLoginError] = useState('')
+  const router = useRouter()
 
   const initialValues = {
     email: "",
     password: ""
   }
 
-  const { register, handleSubmit, formState: {errors} } = useForm({defaultValues: initialValues});
+  const { register, handleSubmit, formState: {errors} } = useForm<FormData>({defaultValues: initialValues});
 
-  const handleLogin = async (formData: any) => {
-    console.log(formData);
-  }
+
+  const handleLogin = async (formData: FormData) => {
+    setLoginError('')
+    
+    const res: UserFromAPI | string | undefined = await loginUser(formData)
+
+    if(typeof res === 'string') {
+        setLoginError(res)
+        return
+    }
+
+    if(res === undefined) {
+      setLoginError('Error creando usuario, intente nuevamente')
+      return
+    }
+
+      localStorage.setItem('javamon-jwt', JSON.stringify(res.token))
+
+      router.push('/dashboard')
+    }
+
+
   
   
   return (
@@ -30,6 +60,7 @@ export const LoginCard = () => {
         width={400}
         height={400}
         className="h-24 object-contain"
+        priority
       />
 
       <div>
@@ -72,6 +103,8 @@ export const LoginCard = () => {
           {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
 
         </div>
+
+        {loginError && <ErrorMessage>{loginError}</ErrorMessage>}
 
         <button 
           type="submit"
