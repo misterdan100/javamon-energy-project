@@ -4,6 +4,7 @@ import { UserFromAPI } from "@/interfaces/types"
 import { apiAxios } from "@/lib/axios"
 import { isAxiosError } from "axios"
 import jwt from 'jsonwebtoken'
+import { NextResponse } from "next/server"
 
 
 type Props = {
@@ -26,12 +27,20 @@ export const loginUser = async ({email, password}: Props) => {
             return 'Contraseña incorrecta'
         }
 
+        if (!process.env.JWT_SECRET) {
+            throw new Error('JWT_SECRET is not defined');
+        }
+
         const jwtUser = jwt.sign({
                 id: userExist.id, email: userExist.email
             },
-            process.env.JWT_SECRET as string,
+            process.env.JWT_SECRET,
             { expiresIn: '1h'}
         )
+
+        const verified = jwt.verify(jwtUser,process.env.JWT_SECRET )
+        console.log('verificado')
+        console.log(verified)
 
         userExist.token = jwtUser
 
@@ -41,7 +50,7 @@ export const loginUser = async ({email, password}: Props) => {
 
         if(!res) return undefined
 
-        return res
+        return { token: jwtUser }
         
         
     } catch (error) {

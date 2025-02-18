@@ -8,7 +8,7 @@ import Image from "next/image"
 import { loginUser } from "@/actions/login"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { UserFromAPI } from "@/interfaces/types"
+import { setCookie } from 'nookies'
 
 interface FormData {
   email: string,
@@ -30,7 +30,7 @@ export const LoginCard = () => {
   const handleLogin = async (formData: FormData) => {
     setLoginError('')
     
-    const res: UserFromAPI | string | undefined = await loginUser(formData)
+    const res: { token?: string } | string | undefined = await loginUser(formData)
 
     if(typeof res === 'string') {
         setLoginError(res)
@@ -42,7 +42,13 @@ export const LoginCard = () => {
       return
     }
 
-      localStorage.setItem('javamon-jwt', JSON.stringify(res.token))
+    // Guardar el token en las cookies
+    setCookie(null, 'javamon-jwt', res.token as string, {
+      maxAge: 60 * 60, // 1 hora
+      path: '/',
+      secure: process.env.NODE_ENV === 'production',
+      httpOnly: false,
+    })
 
       router.push('/dashboard')
     }
