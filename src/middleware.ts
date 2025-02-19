@@ -4,13 +4,11 @@ import { apiAxios } from './lib/axios'
 import { UserFromAPI } from './interfaces/types'
 
 export async function middleware(req: NextRequest) {
-    console.log('Middleware ejecutado')
 
     if (req.nextUrl.pathname.startsWith('/dashboard')) {
         const token = req.cookies.get('javamon-jwt')?.value
 
         if (!token) {
-            console.log('Token no encontrado')
             return NextResponse.redirect(new URL('/login', req.url))
         }
 
@@ -21,7 +19,6 @@ export async function middleware(req: NextRequest) {
             }
 
             const { payload } = await jwtVerify(token, secret)
-            console.log('Token válido:', payload)
 
             const {data: user} = await apiAxios<UserFromAPI>(`/users/${payload.id}`)
             
@@ -29,11 +26,7 @@ export async function middleware(req: NextRequest) {
                 return NextResponse.redirect(new URL('/login', req.url))
             }
 
-            const response = NextResponse.next()
-            response.headers.set('x-user-name', user.nombre)
-            response.headers.set('x-user-rol', user.rol)
-
-            return response
+            return NextResponse.next()
         } catch (error) {
             console.log('Error al verificar el token:', error)
             return NextResponse.redirect(new URL('/login', req.url))

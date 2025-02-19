@@ -38,10 +38,6 @@ export const loginUser = async ({email, password}: Props) => {
             { expiresIn: '1h'}
         )
 
-        const verified = jwt.verify(jwtUser,process.env.JWT_SECRET )
-        console.log('verificado')
-        console.log(verified)
-
         userExist.token = jwtUser
 
         const { data: res } = await apiAxios.put<UserFromAPI>(`/users/${userExist.id}`, {

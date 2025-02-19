@@ -11,7 +11,7 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
   const buttonClasses =
     "p-1.5 bg-gray-100 rounded-lg text-gray-500 hover:bg-gray-200 transition cursor-pointer";
 
-    const [user, setUser] = useState({userName: '', userRol: ''})
+  const [user, setUser] = useState({ userName: "", userRol: "" });
 
   const asideOpen = useAsideStore((state) => state.asideOpen);
   const showAside = useAsideStore((state) => state.showAside);
@@ -20,16 +20,15 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const fetchUserInfo = async () => {
+      const user = await getUserInfo();
+      const nombre = user.nombre.split(" ")[0];
+      const userRol = user.rol;
 
-      const fetchUserInfo = async () => {
-        const user = await getUserInfo()
-        const nombre = user.nombre.split(' ')[0]
-        const userRol = user.rol
-        
-        setUser({userName: nombre, userRol: userRol})
-    }
+      setUser({ userName: nombre, userRol: userRol });
+    };
 
-    fetchUserInfo()
+    fetchUserInfo();
 
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
@@ -46,9 +45,8 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
     };
   }, []);
 
-
   return (
-    <div className="sticky top-0 z-10 flex-shrink-0 bg-white-50 dark:bg-darker w-full py-2 px-4 flex justify-between backdrop-blur-md shadow-sm">
+    <div className="z-10 flex-shrink-0 bg-white-50 dark:bg-darker w-full py-2 px-4 flex justify-between backdrop-blur-md shadow-sm">
       <div className="flex items-center gap-4">
         <IoChevronBackSharp
           size={44}

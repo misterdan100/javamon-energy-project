@@ -62,7 +62,7 @@ export const ProfileForm = ({user}: {user: UserFormData}) => {
           </p>
         </div>
         <input 
-            className={`${editingProfile ? 'border border-gray-400 rounded-lg' : ''} border border-transparent font-bold text-lg text-center`}
+            className={`border ${editingProfile ? 'border-gray-400 rounded-lg' : 'border-transparent'} font-bold text-lg text-center`}
             value={formData.nombre}
             onChange={(e) => onChangeInputs({item: "nombre", value: e.target.value})}
             disabled={!editingProfile}

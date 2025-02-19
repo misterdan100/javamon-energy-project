@@ -1,10 +1,10 @@
 'use client'
 
-import { projectInfo } from "@/config/projectInfo";
 import { useAsideStore } from "@/stores";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useLayoutEffect } from "react";
 import {
   IoAnalytics, IoCloudUpload, IoGrid, IoLogInOutline,
   IoPeopleSharp,
@@ -23,7 +23,6 @@ export const SideBar = () => {
   const handleClickItem = () => {
     if(window.innerWidth < 1024 && asideOpen === true) {
       showAside(false)
-
     }
   }
 
@@ -42,9 +41,15 @@ export const SideBar = () => {
     router.replace('/login')
   }
 
+  useLayoutEffect(() => {
+    if(window.innerWidth < 1024 && asideOpen === true) {
+      showAside(false)
+    }
+  }, [])
+
   if(asideOpen) return (
 
-      <aside className=" min-w-[250px] z-10 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%] ">
+      <aside className="z-10 pb-3 px-6 w-[250px] flex flex-col justify-between h-screen border-r bg-white transition duration-300  ">
         <div>
           <div className="-mx-6 px-6 py-4">
             <Link 
