@@ -4,7 +4,7 @@ import { useAsideStore } from "@/stores";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import {
   IoAnalytics, IoCloudUpload, IoGrid, IoLogInOutline,
   IoPeopleSharp,
@@ -41,7 +41,7 @@ export const SideBar = () => {
     router.replace('/login')
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if(window.innerWidth < 1024 && asideOpen === true) {
       showAside(false)
     }
