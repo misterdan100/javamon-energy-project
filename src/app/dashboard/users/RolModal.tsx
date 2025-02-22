@@ -9,6 +9,7 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@headlessui/react";
+import { revalidatePath } from "next/cache";
 import { useRouter } from "next/navigation";
 
 export const RolModal = () => {
@@ -21,7 +22,7 @@ export const RolModal = () => {
 
   const handleChange = async () => {
     const changeRolFn: any = await changeRol(datosUsuario.id, datosUsuario.rolActual === 'admin' ? 'user' : 'admin')
-    router.refresh()
+    revalidatePath('/dashboard/users')
     openCloseModal(false)
   }
 
