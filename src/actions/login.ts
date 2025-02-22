@@ -4,7 +4,6 @@ import { UserFromAPI } from "@/interfaces/types"
 import { apiAxios } from "@/lib/axios"
 import { isAxiosError } from "axios"
 import jwt from 'jsonwebtoken'
-import { NextResponse } from "next/server"
 
 
 type Props = {

@@ -22,7 +22,7 @@ export const RolModal = () => {
 
   const handleChange = async () => {
     const changeRolFn: any = await changeRol(datosUsuario.id, datosUsuario.rolActual === 'admin' ? 'user' : 'admin')
-    revalidatePath('/dashboard/users')
+    router.refresh()
     openCloseModal(false)
   }
 

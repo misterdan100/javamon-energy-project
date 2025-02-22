@@ -10,9 +10,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <>
-    
-    <header>
+    <>    
+    <header>     
         <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
             <div className="flex flex-wrap justify-center items-center mx-auto max-w-screen-xl gap-4 sm:justify-between  sm:gap-0 ">
                 <Link href="/" className="flex items-center">
@@ -230,7 +229,7 @@ export default function Home() {
         </div>
     </section>
 
-    <section className="bg-gray-50 dark:bg-gray-900">
+    <section id="herramientas" className="bg-gray-50 dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
             <div className="max-w-screen-md mb-8 lg:mb-16">
                 <h2 className="mb-4 text-4xl font-extrabold text-gray-900 dark:text-white">Herramientas para la transición energética</h2>
@@ -340,7 +339,8 @@ export default function Home() {
                         <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Repositorios</h2>
                         <ul className="text-gray-600 dark:text-gray-400">
                             <li className="mb-2">
-                                <a href="https://github.com/misterdan100/javamon-energy-project" className="hover:underline " target="_blank">Backend</a>
+                                <a href="https://github.com/davidptbk/ProyectoJavamon" className="hover:underline " target="_blank"
+                                >Backend</a>
                             </li>
                             <li>
                                 <a href="https://github.com/misterdan100/javamon-energy-project" className="hover:underline" target="_blank">Frontend</a>

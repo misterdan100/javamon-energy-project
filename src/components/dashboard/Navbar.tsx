@@ -2,6 +2,7 @@
 
 import { getUserInfo } from "@/actions/getUserInfo";
 import { useAsideStore } from "@/stores";
+import { activeUser } from "@/stores/activeUser-store";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -16,6 +17,8 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
   const asideOpen = useAsideStore((state) => state.asideOpen);
   const showAside = useAsideStore((state) => state.showAside);
 
+  const changeActiveUser = activeUser( state => state.changeActiveUser);
+
   // track window size
   const [isMobile, setIsMobile] = useState(false);
 
@@ -24,8 +27,15 @@ export const Navbar = ({ children }: { children: React.ReactNode }) => {
       const user = await getUserInfo();
       const nombre = user.nombre.split(" ")[0];
       const userRol = user.rol;
+      
 
       setUser({ userName: nombre, userRol: userRol });
+      changeActiveUser({
+        id: user.id,
+        nombre: user.nombre,
+        email: user.email,
+        rol: user.rol
+      })
     };
 
     fetchUserInfo();

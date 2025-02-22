@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   title: `Usuarios | ${projectInfo.titlePage}`,
 };
 
+export const dynamic = 'force-dynamic'
+
 export default async function UsersPage() {
   const users = await getUsers();
 

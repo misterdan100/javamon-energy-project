@@ -1,6 +1,8 @@
 'use client'
 
 import { useAsideStore } from "@/stores";
+import { activeUser } from "@/stores/activeUser-store";
+import { revalidatePath } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -14,6 +16,8 @@ import {
 export const SideBar = () => {
   const asideOpen = useAsideStore( state => state.asideOpen)
   const showAside = useAsideStore( state => state.showAside)
+
+  const changeActiveUser = activeUser( state => state.changeActiveUser);
 
   const router = useRouter()
 
@@ -38,6 +42,7 @@ export const SideBar = () => {
 
   const handleLogout = () => {
     clearAllCookies();
+    changeActiveUser({id: '', email: '', nombre: '', rol: ''})
     window.location.href = '/login';
   }
 
