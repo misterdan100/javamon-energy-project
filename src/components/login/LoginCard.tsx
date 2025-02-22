@@ -33,9 +33,10 @@ export const LoginCard = () => {
   const handleLogin = async (formData: FormData) => {
     setLoginError("");
 
-    const res: { token?: string } | string | undefined = await loginUser(
-      formData
-    );
+    const res: { token?: string } | string | undefined = await loginUser({
+      email: formData.email.trim().toLowerCase(),
+      password: formData.password
+    });
 
     if (typeof res === "string") {
       setLoginError(res);

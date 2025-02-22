@@ -38,7 +38,7 @@ export const SideBar = () => {
 
   const handleLogout = () => {
     clearAllCookies();
-    router.replace('/login')
+    window.location.href = '/login';
   }
 
   useEffect(() => {

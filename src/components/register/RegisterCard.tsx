@@ -40,7 +40,11 @@ export const RegisterCard = () => {
   const handleRegister = async (data: FormData) => {
     setCreateError("");
     const { confirmPassword, ...rest } = data;
-    const user: UserFromAPI | string | undefined = await createUser(rest);
+    const user: UserFromAPI | string | undefined = await createUser({
+      ...rest,
+      email: rest.email.trim().toLowerCase(),
+      nombre: rest.nombre.trim()
+    });
 
     if (typeof user === "string") {
       setCreateError(user);
@@ -60,7 +64,7 @@ export const RegisterCard = () => {
       httpOnly: false,
     });
 
-    router.push("/dashboard");
+    window.location.href = '/dashboard';
   };
 
   return (
