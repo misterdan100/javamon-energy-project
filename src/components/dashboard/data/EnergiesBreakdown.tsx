@@ -1,34 +1,80 @@
 import React, { CSSProperties } from "react";
+import dataJSON from '@/data/data.json'
 
 const data = [
   {
     key: "Utils",
     value: 17.1,
-    color: "from-fuchsia-300/80 to-fuchsia-400/80 dark:from-fuchsia-500 dark:to-fuchsia-700",
+    color: "from-fuchsia-300/80 to-fuchsia-400/80",
   },
   {
     key: "Tech",
     value: 14.3,
-    color: "from-violet-300 to-violet-400 dark:from-violet-500 dark:to-violet-700",
+    color: "from-violet-300 to-violet-400",
   },
   {
     key: "Energy",
     value: 27.1,
-    color: "from-blue-300 to-blue-400 dark:from-blue-500 dark:to-blue-700",
+    color: "from-blue-300 to-blue-400",
   },
   {
     key: "Cyclicals",
     value: 42.5,
-    color: "from-sky-300 to-sky-400 dark:from-sky-500 dark:to-sky-700",
+    color: "from-sky-300 to-sky-400",
   },
   {
     key: "Fuel",
     value: 12.7,
-    color: "from-orange-200 to-orange-300 dark:from-amber-500 dark:to-amber-700",
+    color: "from-orange-200 to-orange-300",
   },
 ];
 
+const flagDictionary: Record<string, string> = {
+  'Eólica': "from-fuchsia-300/80 to-fuchsia-400/80",
+  'Hidroeléctrica': "from-cyan-300 to-cyan-400",
+  'Solar': "from-amber-300 to-amber-400",
+  'Biocombustibles': "from-violet-300 to-violet-400",
+  'Geotérmica': "from-lime-200 to-lime-300"
+}
+
 export function EnergiesBreakdown() {
+  // clean data ------------
+  const { energias, datosTiempoReal } = dataJSON
+  const { consumo, produccion } = datosTiempoReal
+
+  const data: {key: string, value: number, color: string}[] = []
+
+  energias.forEach( item => {
+
+      const index = data.findIndex( i => i.key === item.tipoEnergia)
+
+      if(index >= 0) {
+        data[index].value = data[index].value + 1
+      } else {
+        data.push({
+          key: item.tipoEnergia,
+          value: 1,
+          color: flagDictionary[item.tipoEnergia]
+        })
+      }
+  })
+
+  produccion.forEach( item => {
+    const index = data.findIndex( i => i.key === item.tipoEnergia)
+
+    data[index].value = data[index].value + 1
+  })
+
+  consumo.forEach( item => {
+    const index = data.findIndex( i => i.key === item.tipoEnergia)
+
+    data[index].value = data[index].value + 1
+  })
+
+
+
+
+
   const gap = 0.3; // gap between bars
   const totalValue = data.reduce((acc, d) => acc + d.value, 0);
   const barHeight = 54;
@@ -69,6 +115,7 @@ export function EnergiesBreakdown() {
             translate-x-[var(--marginLeft)]
             translate-y-[var(--marginTop)]
             overflow-visible
+            flex flex-wrap
           "
         >
           {/* Bars with Gradient Fill */}
@@ -102,7 +149,7 @@ export function EnergiesBreakdown() {
                     top: `${barHeight / 5}px`,
                     left: "50%",
                     transform: "translateX(-50%)",
-                    color: "white",
+                    color: "#4b5563",
                     fontSize: "14px",
                     fontWeight: "600",
                     textAlign: "center",
@@ -116,7 +163,7 @@ export function EnergiesBreakdown() {
                     top: `${barHeight / 2}px`,
                     left: "50%",
                     transform: "translateX(-50%)",
-                    color: "white",
+                    color: "#4b5563",
                     fontSize: "12px",
                     fontWeight: "bold",
                     textAlign: "center",

@@ -32,7 +32,8 @@
       "vidaUtil": 50,
       "tecnologia": "Embalse",
       "propietario": "Empresa de Energía de Cundinamarca",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2012
     },
     {
       "id": "HE2",
@@ -66,7 +67,8 @@
       "vidaUtil": 40,
       "tecnologia": "Filo de agua",
       "propietario": "Empresas Públicas de Medellín",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 1999
     },
     {
       "id": "EW1",
@@ -101,7 +103,8 @@
       "vidaUtil": 25,
       "tecnologia": "Onshore",
       "propietario": "Guajira Eólica S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2003
     },
     {
       "id": "EW2",
@@ -136,7 +139,8 @@
       "vidaUtil": 25,
       "tecnologia": "Onshore",
       "propietario": "Energía Andina S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2014
     },
     {
       "id": "SO1",
@@ -170,7 +174,8 @@
       "vidaUtil": 30,
       "tecnologia": "Silicio Policristalino",
       "propietario": "Solar Caribe S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2016
     },
     {
       "id": "SO2",
@@ -204,7 +209,8 @@
       "vidaUtil": 30,
       "tecnologia": "Silicio Policristalino",
       "propietario": "Energía de Boyacá S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2019
     },
     {
       "id": "BC1",
@@ -231,7 +237,8 @@
       "vidaUtil": 20,
       "tecnologia": "Fermentación, transesterificación",
       "propietario": "Biocombustibles del Amazonas S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2018
     },
     {
       "id": "BC2",
@@ -258,7 +265,8 @@
       "vidaUtil": 20,
       "tecnologia": "Fermentación",
       "propietario": "Biocombustibles de la Orinoquía S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2000
     },
     {
       "id": "GT1",
@@ -285,7 +293,8 @@
       "vidaUtil": 30,
       "tecnologia": "Ciclo binario",
       "propietario": "Geotérmica Andina S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2021
     },
     {
       "id": "GT2",
@@ -312,7 +321,8 @@
       "vidaUtil": 30,
       "tecnologia": "Ciclo binario",
       "propietario": "Geotérmica de Caldas S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 1998
     },
     {
       "id": "HE3",
@@ -346,7 +356,8 @@
       "vidaUtil": 50,
       "tecnologia": "Embalse",
       "propietario": "Empresa de Energía del Pacífico",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2008
     },
     {
       "id": "SO3",
@@ -380,7 +391,8 @@
       "vidaUtil": 30,
       "tecnologia": "Silicio Monocristalino",
       "propietario": "Solar Llanos S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2008
     },
     {
       "id": "EW3",
@@ -415,7 +427,8 @@
       "vidaUtil": 25,
       "tecnologia": "Onshore",
       "propietario": "Brisas del Caribe S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2015
     },
     {
       "id": "BC3",
@@ -442,7 +455,8 @@
       "vidaUtil": 20,
       "tecnologia": "Transesterificación",
       "propietario": "Bioenergía del Valle S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2015
     },
     {
       "id": "GT3",
@@ -469,7 +483,8 @@
       "vidaUtil": 30,
       "tecnologia": "Ciclo binario",
       "propietario": "Geotermia Cafetera S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2006
     },
     {
       "id": "SO4",
@@ -503,7 +518,8 @@
       "vidaUtil": 30,
       "tecnologia": "Silicio Monocristalino",
       "propietario": "Sol del Magdalena S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2015
     },
     {
       "id": "HE4",
@@ -537,7 +553,8 @@
       "vidaUtil": 50,
       "tecnologia": "Embalse",
       "propietario": "Energía de Santander S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2012
     },
     {
       "id": "EW4",
@@ -572,7 +589,8 @@
       "vidaUtil": 25,
       "tecnologia": "Onshore",
       "propietario": "Vientos de Córdoba S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2001
     },
     {
       "id": "BC4",
@@ -599,7 +617,8 @@
       "vidaUtil": 20,
       "tecnologia": "Digestión anaeróbica",
       "propietario": "Bioenergía del Cauca S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 1994
     },
     {
       "id": "GT4",
@@ -626,7 +645,8 @@
       "vidaUtil": 30,
       "tecnologia": "Ciclo binario",
       "propietario": "Geotermia del Tolima S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2015
     },
     {
       "id": "HE1",
@@ -660,7 +680,8 @@
       "vidaUtil": 50,
       "tecnologia": "Embalse",
       "propietario": "Empresa de Energía de Cundinamarca",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2020
     },
     {
       "id": "HE2",
@@ -694,7 +715,8 @@
       "vidaUtil": 40,
       "tecnologia": "Filo de agua",
       "propietario": "Empresas Públicas de Medellín",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2015
     },
     {
       "id": "EW1",
@@ -729,7 +751,8 @@
       "vidaUtil": 25,
       "tecnologia": "Onshore",
       "propietario": "Guajira Eólica S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2021
     },
     {
       "id": "EW2",
@@ -764,7 +787,8 @@
       "vidaUtil": 25,
       "tecnologia": "Onshore",
       "propietario": "Energía Andina S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2003
     },
     {
       "id": "SO1",
@@ -798,7 +822,8 @@
       "vidaUtil": 30,
       "tecnologia": "Silicio Policristalino",
       "propietario": "Solar Caribe S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2001
     },
     {
       "id": "SO2",
@@ -832,7 +857,8 @@
       "vidaUtil": 30,
       "tecnologia": "Silicio Policristalino",
       "propietario": "Energía de Boyacá S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 1998
     },
     {
       "id": "BC1",
@@ -859,7 +885,8 @@
       "vidaUtil": 20,
       "tecnologia": "Fermentación, transesterificación",
       "propietario": "Biocombustibles del Amazonas S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2017
     },
     {
       "id": "BC2",
@@ -886,7 +913,8 @@
       "vidaUtil": 20,
       "tecnologia": "Fermentación",
       "propietario": "Biocombustibles de la Orinoquía S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 1997
     },
     {
       "id": "GT1",
@@ -913,7 +941,8 @@
       "vidaUtil": 30,
       "tecnologia": "Ciclo binario",
       "propietario": "Geotérmica Andina S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2016
     },
     {
       "id": "GT2",
@@ -940,7 +969,8 @@
       "vidaUtil": 30,
       "tecnologia": "Ciclo binario",
       "propietario": "Geotérmica de Caldas S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2011
     },
     {
       "id": "HE3",
@@ -974,7 +1004,8 @@
       "vidaUtil": 50,
       "tecnologia": "Embalse",
       "propietario": "Empresa de Energía del Pacífico",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2008
     },
     {
       "id": "SO3",
@@ -1008,7 +1039,8 @@
       "vidaUtil": 30,
       "tecnologia": "Silicio Monocristalino",
       "propietario": "Solar Llanos S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2010
     },
     {
       "id": "EW3",
@@ -1043,7 +1075,8 @@
       "vidaUtil": 25,
       "tecnologia": "Onshore",
       "propietario": "Brisas del Caribe S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2018
     },
     {
       "id": "BC3",
@@ -1070,7 +1103,8 @@
       "vidaUtil": 20,
       "tecnologia": "Transesterificación",
       "propietario": "Bioenergía del Valle S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2005
     },
     {
       "id": "GT3",
@@ -1097,7 +1131,8 @@
       "vidaUtil": 30,
       "tecnologia": "Ciclo binario",
       "propietario": "Geotermia Cafetera S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2006
     },
     {
       "id": "SO4",
@@ -1131,7 +1166,8 @@
       "vidaUtil": 30,
       "tecnologia": "Silicio Monocristalino",
       "propietario": "Sol del Magdalena S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2008
     },
     {
       "id": "HE4",
@@ -1165,7 +1201,8 @@
       "vidaUtil": 50,
       "tecnologia": "Embalse",
       "propietario": "Energía de Santander S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2001
     },
     {
       "id": "EW4",
@@ -1200,7 +1237,8 @@
       "vidaUtil": 25,
       "tecnologia": "Onshore",
       "propietario": "Vientos de Córdoba S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2021
     },
     {
       "id": "BC4",
@@ -1227,7 +1265,8 @@
       "vidaUtil": 20,
       "tecnologia": "Digestión anaeróbica",
       "propietario": "Bioenergía del Cauca S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2011
     },
     {
       "id": "GT4",
@@ -1254,7 +1293,8 @@
       "vidaUtil": 30,
       "tecnologia": "Ciclo binario",
       "propietario": "Geotermia del Tolima S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2020
     },
     {
       "id": "HE5",
@@ -1288,7 +1328,8 @@
       "vidaUtil": 50,
       "tecnologia": "Embalse",
       "propietario": "Empresa de Energía del Huila",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 1995
     },
     {
       "id": "SO5",
@@ -1322,7 +1363,8 @@
       "vidaUtil": 30,
       "tecnologia": "Silicio Monocristalino",
       "propietario": "Sol de la Frontera S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 1996
     },
     {
       "id": "EW5",
@@ -1357,7 +1399,8 @@
       "vidaUtil": 25,
       "tecnologia": "Onshore",
       "propietario": "Vientos del Altiplano S.A.",
-      "estado": "En construcción"
+      "estado": "En construcción",
+      "fechaInstalacion": 2001
     },
     {
       "id": "BC5",
@@ -1384,7 +1427,8 @@
       "vidaUtil": 20,
       "tecnologia": "Digestión anaeróbica",
       "propietario": "Bioenergía de Sucre S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 1997
     },
     {
       "id": "GT5",
@@ -1411,7 +1455,8 @@
       "vidaUtil": 30,
       "tecnologia": "Ciclo binario",
       "propietario": "Geotermia del Puracé S.A.",
-      "estado": "En exploración"
+      "estado": "En exploración",
+      "fechaInstalacion": 1998
     },
     {
       "id": "HE6",
@@ -1445,7 +1490,8 @@
       "vidaUtil": 50,
       "tecnologia": "Embalse",
       "propietario": "Energía del Caquetá S.A.",
-      "estado": "En construcción"
+      "estado": "En construcción",
+      "fechaInstalacion": 2002
     },
     {
       "id": "SO6",
@@ -1479,7 +1525,8 @@
       "vidaUtil": 30,
       "tecnologia": "Silicio Monocristalino",
       "propietario": "Sol del Casanare S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2010
     },
     {
       "id": "EW6",
@@ -1514,7 +1561,8 @@
       "vidaUtil": 25,
       "tecnologia": "Onshore",
       "propietario": "Vientos de Antioquia S.A.",
-      "estado": "En planeación"
+      "estado": "En planeación",
+      "fechaInstalacion": 2021
     },
     {
       "id": "BC6",
@@ -1541,7 +1589,8 @@
       "vidaUtil": 20,
       "tecnologia": "Digestión anaeróbica",
       "propietario": "Bioenergía de Bogotá S.A.",
-      "estado": "Operativo"
+      "estado": "Operativo",
+      "fechaInstalacion": 2015
     }
   ],
   "datosTiempoReal": {
