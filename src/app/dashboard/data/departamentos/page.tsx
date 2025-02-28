@@ -1,5 +1,4 @@
 import { Navbar } from "@/components";
-import { ItemDepart } from "@/components/dashboard/departamentos/ItemDepart";
 import data from "@/data/data.json";
 import { Energia } from "@/interfaces/dataTypes";
 import { DepartTable } from "./DepartTable";

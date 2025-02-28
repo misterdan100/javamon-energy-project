@@ -1,4 +1,4 @@
-import { Navbar } from "@/components";
+import { EnergiesBreakdown, EnergyDepBarChart, Navbar, TypeEnergyBarChart4 } from "@/components";
 import { projectInfo } from "@/config/projectInfo";
 import { Metadata } from "next";
 
@@ -10,9 +10,25 @@ export default function DataPage() {
   
   
   return (
-    <div>
-        <Navbar >Datos</Navbar>
-      DataPage
-    </div>
+    <>
+      <Navbar>Datos</Navbar>
+
+      <div 
+        id="main-content"
+        className="flex-1 p-4 overflow-y-auto">
+
+          <div
+            className="grid lg:grid-cols-12 gap-4"
+          >
+            <EnergyDepBarChart />
+            <TypeEnergyBarChart4 />
+            <EnergiesBreakdown />
+
+
+          </div>
+
+      </div>
+
+    </>
   )
 }
