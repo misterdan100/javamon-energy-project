@@ -105,7 +105,7 @@ export default function DashboardPage() {
           </Link>
 
           <Link 
-            href={'/dashboard/usuarios'}
+            href={'/dashboard/users'}
             className="lg:col-span-6 flex flex-wrap gap-4 bg-white rounded-lg border-2 border-teal-200 hover:scale-[1.03] px-6 py-4 hover:bg-teal-100 transition"
           >
             {/* Agrega aquí el contenido o componentes que necesites */}
