@@ -70,12 +70,33 @@ export default function Home() {
                   ></path>
                 </svg>
               </Link>
+
               <Link
                 href="https://github.com/misterdan100/javamon-energy-project"
                 className="w-fit inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-gray-800 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 dark:focus:ring-lime-900"
                 target="_blank"
               >
                 Repositorio GitHub
+                <svg
+                  className="w-5 h-5 ml-2 -mr-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </Link>
+
+              <Link
+                href="https://javamon.vercel.app/"
+                className="w-fit inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-gray-800 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 dark:focus:ring-lime-900"
+                target="_blank"
+              >
+                Deploy: https://javamon.vercel.app/
                 <svg
                   className="w-5 h-5 ml-2 -mr-1"
                   fill="currentColor"
@@ -201,17 +222,20 @@ export default function Home() {
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 className="mb-4 text-4xl font-extrabold text-gray-900 dark:text-white">
-              API Integrada
+              API Integrada (Alcance del Proyecto)
             </h2>
+            <h3></h3>
             <p className="mb-4">
-              Nuestra API unifica datos de generación y consumo de energías renovables en 
-              todo el país, permitiéndote acceder fácilmente a la información que necesitas 
-              para optimizar proyectos de eficiencia energética.
+            Desarrollo de una API REST para la consulta y gestión de datos de energías renovables.
+            </p>
+            <p className="mb-4">
+            Implementación de un dashboard para la visualización de estadísticas energéticas (por tipo de energía, región, año, etc.).
+
             </p>
             <p>
-              Con esta integración, podrás acceder a informes detallados, 
-              comparar las estadísticas de generación y consumo en distintas regiones 
-              y tomar decisiones informadas que impulsen el desarrollo sostenible en Colombia.
+            Módulos de autenticación y autorización para asegurar el acceso a la información (roles de usuario: ADMIN y BASIC_USER).
+
+
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4 mt-8">
@@ -233,11 +257,28 @@ export default function Home() {
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div className="max-w-screen-md mb-8 lg:mb-16">
             <h2 className="mb-4 text-4xl font-extrabold text-gray-900 dark:text-white">
-              Herramientas para la transición energética
+            Tecnologías y Herramientas
             </h2>
-            <p className="text-gray-500 sm:text-xl dark:text-gray-400">
-              Nuestra plataforma integra tecnologías innovadoras para apoyar la toma de decisiones
-              en el sector energético colombiano.
+            <p className="text-gray-500 sm:text-xl dark:text-gray-400 mb-4">
+              <span className="font-bold text-gray-200">Backend: </span>
+            Spring Boot, Spring Security, JWT para autenticación y autorización, Hibernate para mapeo objeto-relacional, MapStruct.
+
+            </p>
+            <p className="text-gray-500 sm:text-xl dark:text-gray-400 mb-4">
+            <span className="font-bold text-gray-200">Frontend: </span>
+              React, Next.js y Typescript para el desarrollo de interfaces interactivas y responsivas.
+            </p>
+            <p className="text-gray-500 sm:text-xl dark:text-gray-400 mb-4">
+              <span className="font-bold text-gray-200">Base de Datos: </span>
+             MySQL en la nube o local.
+            </p>
+            <p className="text-gray-500 sm:text-xl dark:text-gray-400 mb-4">
+              <span className="font-bold text-gray-200">Documentación de la API: </span>
+             Swagger para generar y mantener la especificación de los endpoints.
+            </p>
+            <p className="text-gray-500 sm:text-xl dark:text-gray-400 mb-4">
+              <span className="font-bold text-gray-200">Control de versiones: </span>
+            Control de versiones: Git y GitHub para la gestión colaborativa y seguimiento de cambios.
             </p>
           </div>
           <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">

@@ -1,27 +1,68 @@
-import { CSSProperties } from "react";
+"use client"
+
+import { CSSProperties, useEffect, useState } from "react";
 import { scaleTime, scaleLinear, max, line as d3_line, curveNatural as d3_curveNatural } from "d3";
-import { ClientTooltip, TooltipContent, TooltipTrigger } from "./Tooltip"; // Or wherever you pasted Tooltip.tsx
+import { ClientTooltip, TooltipContent, TooltipTrigger } from "./Tooltip"; 
 import dataJSON from '@/data/data.json';
-
-// Inicializa los datos con años y valores
-let data: { date: Date, value: number }[] = [];
-
-// Procesa los datos del JSON para agregar la propiedad fechaInstalacion
-dataJSON.energias.forEach(item => {
-  const year = new Date(item.fechaInstalacion, 0, 1); // Solo el año
-  const index = data.findIndex(i => i.date.getFullYear() === year.getFullYear());
-
-  if (index >= 0) {
-    data[index].value += 1;
-  } else {
-    data.push({ date: year, value: 1 });
-  }
-});
-
-// Ordena los datos por año
-data.sort((a, b) => a.date.getFullYear() - b.date.getFullYear());
+import axios from "axios";
 
 export function InstalacionesLineChart() {
+  // estado para almacenar los datos
+  const [data, setData] = useState<{ date: Date, value: number }[]>([]);
+
+  // funcion para pedir los datos en la api en local
+  const getData = async (): Promise<{ date: Date, value: number }[]> => {
+    try {
+      const response = await axios("http://localhost:8080/api/energy/findAll");
+      return response.data.map((item: any) => ({
+        ...item,
+        date: new Date(item.date) 
+      }));
+    } catch (error) {
+      console.log("Error en getdata:", error);
+      return [];
+    }
+  };
+
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      const apiData = await getData();
+      console.log(apiData)
+      
+      
+      let processedData = [...apiData];
+      
+      
+      dataJSON.energias.forEach(item => {
+        const year = new Date(item.fechaInstalacion, 0, 1); // Solo el año
+        const index = processedData.findIndex(i => {
+          return i.date instanceof Date && i.date.getFullYear() === year.getFullYear();
+        });
+      
+        if (index >= 0) {
+          processedData[index].value += 1;
+        } else {
+          processedData.push({ date: year, value: 1 });
+        }
+      });
+
+      
+      
+      processedData.sort((a, b) => a.date.getFullYear() - b.date.getFullYear());
+      
+      setData(processedData);
+      console.log(dataJSON.energias)
+    };
+
+    fetchData();
+  }, []);
+
+
+  if (data.length === 0) {
+    return <div>Loading...</div>;
+  }
+
   let xScale = scaleTime()
     .domain([data[0].date, data[data.length - 1].date])
     .range([0, 100]);
@@ -189,18 +230,17 @@ export function InstalacionesLineChart() {
           <div className="translate-y-2">
             {/* X Axis */}
             {data.map((day, i) => {
+              if(Number(day.date.getFullYear()) % 5 !== 0) return null;
               const isFirst = i === 0;
               const isLast = i === data.length - 1;
-              const isMax = day.value === Math.max(...data.map((d) => d.value));
-            //   if (!isFirst && !isLast && !isMax) return null;
-            if(Number(day.date.getFullYear()) % 5 !== 0) return null
+              
               return (
                 <div key={i} className="overflow-visible text-zinc-500">
                   <div
                     style={{
                       left: `${xScale(day.date)}%`,
                       top: "100%",
-                      transform: `translateX(${i === 0 ? "0%" : i === data.length - 1 ? "-100%" : "-50%"})`, // The first and last labels should be within the chart area
+                      transform: `translateX(${isFirst ? "0%" : isLast ? "-100%" : "-50%"})`, 
                     }}
                     className="text-xs absolute"
                   >
