@@ -1,4 +1,4 @@
-# 🌱 EnergiApp - Plataforma de Datos de Energías Renovables
+# 🌱 EnergyApp - Plataforma de Datos de Energías Renovables
 
 [![JavaScript](https://img.shields.io/badge/Javascript--orange.svg)](https://nextjs.org/)
 [![JavaScript](https://img.shields.io/badge/React-18.0-blue.svg)](https://nextjs.org/)
@@ -8,6 +8,9 @@
 [![Zustand](https://img.shields.io/badge/Zustand-4.0-orange.svg)](https://zustand-demo.pmnd.rs/)
 
 Plataforma web que centraliza y democratiza el acceso a datos sobre energías renovables en Colombia. Facilitamos la toma de decisiones en la transición energética del país mediante datos estandarizados y APIs accesibles.
+
+## 🚀 Demo online
+[App online Javamon.vercel.app](https://javamon.vercel.app/)
 
 ## ✨ Características Principales
 
@@ -27,7 +30,8 @@ Plataforma web que centraliza y democratiza el acceso a datos sobre energías re
 - **React Query** - Manejo eficiente de datos del servidor
 - **Shadcn/UI** - Componentes reutilizables y accesibles
 
-## 🚀 Inicio Rápido
+
+## 🚀 Inicio Rápido Local
 
 ```bash
 # Clonar el repositorio

@@ -76,7 +76,27 @@ export default function Home() {
                 className="w-fit inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-gray-800 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 dark:focus:ring-lime-900"
                 target="_blank"
               >
-                Repositorio GitHub
+                Repositorio FrontEnd
+                <svg
+                  className="w-5 h-5 ml-2 -mr-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </Link>
+
+              <Link
+                href="https://github.com/JuanCamacho1913/renewable-energy"
+                className="w-fit inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-gray-800 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 dark:focus:ring-lime-900"
+                target="_blank"
+              >
+                Repositorio BackEnd
                 <svg
                   className="w-5 h-5 ml-2 -mr-1"
                   fill="currentColor"
@@ -334,7 +354,7 @@ export default function Home() {
                 <ul className="text-gray-600 dark:text-gray-400">
                   <li className="mb-2">
                     <a
-                      href="https://github.com/davidptbk/ProyectoJavamon"
+                      href="https://github.com/JuanCamacho1913/renewable-energy"
                       className="hover:underline"
                       target="_blank"
                     >
@@ -364,7 +384,7 @@ export default function Home() {
                     <a href="#" className="hover:underline">MySQL</a>
                   </li>
                   <li>
-                    <a href="#" className="hover:underline">TypeScript + React</a>
+                    <a href="#" className="hover:underline">TypeScript + React, Next.js</a>
                   </li>
                 </ul>
               </div>
