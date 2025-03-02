@@ -132,10 +132,10 @@ export const LoginCard = () => {
       </Link>
 
       <div
-        className="flex flex-col items-center"
+        className="flex flex-col items-center text-sm text-gray-400 italic"
       >
         <p className="font-semibold">Usuario de prueba:</p>
-        <p>Usuario: admin@correo.com</p>
+        <p>Correo: admin@correo.com</p>
         <p>Contraseña: 12345678</p>
       </div>
     </div>
