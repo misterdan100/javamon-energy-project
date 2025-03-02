@@ -130,6 +130,14 @@ export const LoginCard = () => {
       >
         Crear una cuenta.
       </Link>
+
+      <div
+        className="flex flex-col items-center"
+      >
+        <p className="font-semibold">Usuario de prueba:</p>
+        <p>Usuario: admin@correo.com</p>
+        <p>Contraseña: 12345678</p>
+      </div>
     </div>
   );
 };
