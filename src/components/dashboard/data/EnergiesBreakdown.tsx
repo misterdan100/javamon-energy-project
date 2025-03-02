@@ -85,11 +85,12 @@ export function EnergiesBreakdown() {
 
   return (
     <div
+    id="instalaciones"
     className="lg:col-span-12 bg-zinc-50 py-7 px-9"
 >
     <h3
         className="text-2xl/8 font-medium tracking-tight text-gray-950"
-    >Instacion por Energias Renovables</h3>
+    >Instalacion por Energias Renovables</h3>
 
     <p
         className="text-sm/6 text-gray-600 mb-4"

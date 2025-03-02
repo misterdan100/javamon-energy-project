@@ -42,7 +42,7 @@ export function InstalacionesLineChart() {
 
   return (
     <div className="lg:col-span-12 bg-zinc-50 py-7 px-9">
-      <h3 className="text-2xl/8 font-medium tracking-tight text-gray-950">Historial de instalaciones</h3>
+      <h3 className="text-2xl/8 font-medium tracking-tight text-gray-950">Historial de instalaciones por Año</h3>
       <p className="text-sm/6 text-gray-600 mb-4">Numero de proyectos puestos en funcionamiento</p>
 
       <div

@@ -1,4 +1,4 @@
-import { EnergiesBreakdown, EnergyDepBarChart, InstalacionesLineChart, Navbar, TypeEnergyBarChart4 } from "@/components";
+import { EmpleadosStackedChart, EnergiesBreakdown, EnergyDepBarChart, ImpactoAmbientalRadarChart, InstalacionesLineChart, Navbar, TypeEnergyBarChart4 } from "@/components";
 import { projectInfo } from "@/config/projectInfo";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -19,8 +19,6 @@ function getRandomYear() {
 dataJSON.energias.forEach(energia => {
   energia.fechaInstalacion = getRandomYear();
 });
-
-console.log(JSON.stringify(dataJSON.energias))
    
   
   return (
@@ -38,6 +36,10 @@ console.log(JSON.stringify(dataJSON.energias))
               className="lg:col-span-12 flex flex-wrap gap-4"
             >
               <Link
+                href='/dashboard/data/eficiencia'
+                className="bg-white hover:bg-gray-200 font-semibold text-gray-600 border border-1 border-gray-300 px-6 py-4 rounded-lg transition"
+              >Eficiencia</Link>
+              <Link
                 href='/dashboard/data/departamentos'
                 className="bg-white hover:bg-gray-200 font-semibold text-gray-600 border border-1 border-gray-300 px-6 py-4 rounded-lg transition"
               >Tabla de Departamentos</Link>
@@ -48,6 +50,12 @@ console.log(JSON.stringify(dataJSON.energias))
             <EnergiesBreakdown />
 
             <InstalacionesLineChart />
+
+            <EmpleadosStackedChart />
+
+            <ImpactoAmbientalRadarChart />
+
+
 
 
 
